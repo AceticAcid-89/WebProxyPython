@@ -1,4 +1,3 @@
-#!/usr/bin/python3.6
 # encoding:utf-8
 
 import _thread
@@ -22,7 +21,7 @@ BLOCKED_URLS = []
 def main():
     # check the length of command running
     if len(sys.argv) < 2:
-        print_ext("no port is given, using 8080 (http-default)")
+        print_ext("no port is given, using :8080 (http-default)")
         port = 8080
     else:
         # port from argument
@@ -56,8 +55,6 @@ def main():
 def proxy_thread(conn):
     # get the request from browser
     request = str(conn.recv(MAX_DATA_RECEIVE))
-
-    print_ext(request)
 
     # parse the first line
     first_line = request.split('\n')[0]
